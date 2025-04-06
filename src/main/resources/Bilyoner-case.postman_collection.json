@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "a657eaa7-7842-4a7b-a3f1-d0a6fc720578",
+		"name": "Bilyoner-case",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11846930"
+	},
+	"item": [
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"leagueName\": \"Premier League\",\n  \"homeTeamName\": \"Manchester United\",\n  \"awayTeamName\": \"Liverpool\",\n  \"homeWinsRate\": 2.35,\n  \"awayWinsRate\": 3.10,\n  \"drawRate\": 3.00,\n  \"eventDate\": \"2025-04-10T20:45:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/events",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/events",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"events"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BetSlip",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "customer-id",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"eventId\": 1,\n  \"eventVersion\": 2,\n  \"betType\": \"HOME_WIN\",\n  \"betCount\": 3,\n  \"betAmount\": 100.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/betslips",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"betslips"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

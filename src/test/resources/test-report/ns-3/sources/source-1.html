@@ -1,0 +1,231 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > BetSlip</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.berkaydemirel.betslip.data</a>
+</div>
+
+<h1>Coverage Summary for Class: BetSlip (com.berkaydemirel.betslip.data)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BetSlip</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/15)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">BetSlip$HibernateInstantiator$buEEtA97</td>
+  </tr>
+  <tr>
+    <td class="name">BetSlip$HibernateInstantiator$HSDEUVNE</td>
+  </tr>
+  <tr>
+    <td class="name">BetSlip$HibernateInstantiator$yFvyCWPG</td>
+  </tr>
+  <tr>
+    <td class="name">BetSlip$HibernateProxy$5HQrduPS</td>
+  </tr>
+  <tr>
+    <td class="name">BetSlip$HibernateProxy$Hmzj1bvc</td>
+  </tr>
+  <tr>
+    <td class="name">BetSlip$HibernateProxy$Wj0qcN1Z</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/15)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.berkaydemirel.betslip.data;
+&nbsp;
+&nbsp;import com.berkaydemirel.betslip.dto.BetType;
+&nbsp;import jakarta.persistence.Column;
+&nbsp;import jakarta.persistence.Entity;
+&nbsp;import jakarta.persistence.EnumType;
+&nbsp;import jakarta.persistence.Enumerated;
+&nbsp;import jakarta.persistence.GeneratedValue;
+&nbsp;import jakarta.persistence.Id;
+&nbsp;import jakarta.validation.constraints.DecimalMax;
+&nbsp;import jakarta.validation.constraints.DecimalMin;
+&nbsp;import jakarta.validation.constraints.Max;
+&nbsp;import java.math.BigDecimal;
+&nbsp;
+&nbsp;/**
+&nbsp; * @author berkaydemirel
+&nbsp; */
+&nbsp;@Entity
+<b class="fc">&nbsp;public class BetSlip {</b>
+&nbsp;
+&nbsp;  @Id
+&nbsp;  @GeneratedValue
+&nbsp;  private Long id;
+&nbsp;
+&nbsp;  @Column(nullable = false)
+&nbsp;  private Long eventId;
+&nbsp;
+&nbsp;  @Column(nullable = false)
+&nbsp;  private Integer eventVersion;
+&nbsp;
+&nbsp;  @Enumerated(EnumType.STRING)
+&nbsp;  @Column(nullable = false)
+&nbsp;  private BetType betType;
+&nbsp;
+&nbsp;  @Column(nullable = false)
+&nbsp;  private Long customerId;
+&nbsp;
+&nbsp;  @Column(nullable = false)
+&nbsp;  @Max(500)
+&nbsp;  private Integer betCount;
+&nbsp;
+&nbsp;  @Column(nullable = false)
+&nbsp;  @DecimalMin(value = &quot;0.0&quot;, inclusive = false)
+&nbsp;  @DecimalMax(value = &quot;10000.00&quot;)
+&nbsp;  private BigDecimal betAmount;
+&nbsp;
+&nbsp;  public Long getId() {
+<b class="fc">&nbsp;    return id;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public void setId(Long id) {
+<b class="fc">&nbsp;    this.id = id;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public Long getEventId() {
+<b class="fc">&nbsp;    return eventId;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public void setEventId(Long eventId) {
+<b class="fc">&nbsp;    this.eventId = eventId;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public Integer getEventVersion() {
+<b class="fc">&nbsp;    return eventVersion;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public void setEventVersion(Integer eventVersion) {
+<b class="fc">&nbsp;    this.eventVersion = eventVersion;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public BetType getBetType() {
+<b class="fc">&nbsp;    return betType;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public void setBetType(BetType betType) {
+<b class="fc">&nbsp;    this.betType = betType;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public Long getCustomerId() {
+<b class="fc">&nbsp;    return customerId;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public void setCustomerId(Long customerId) {
+<b class="fc">&nbsp;    this.customerId = customerId;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public Integer getBetCount() {
+<b class="fc">&nbsp;    return betCount;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public void setBetCount(Integer betCount) {
+<b class="fc">&nbsp;    this.betCount = betCount;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public BigDecimal getBetAmount() {
+<b class="fc">&nbsp;    return betAmount;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public void setBetAmount(BigDecimal betAmount) {
+<b class="fc">&nbsp;    this.betAmount = betAmount;</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-04-06 12:20</div>
+</div>
+</body>
+</html>

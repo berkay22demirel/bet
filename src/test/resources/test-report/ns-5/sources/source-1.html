@@ -1,0 +1,150 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > BetSlipService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.berkaydemirel.betslip.service</a>
+</div>
+
+<h1>Coverage Summary for Class: BetSlipService (com.berkaydemirel.betslip.service)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BetSlipService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">BetSlipService$$SpringCGLIB$$0</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.berkaydemirel.betslip.service;
+&nbsp;
+&nbsp;import com.berkaydemirel.betslip.data.BetSlip;
+&nbsp;import com.berkaydemirel.betslip.data.BetSlipRepository;
+&nbsp;import com.berkaydemirel.customer.service.CustomerService;
+&nbsp;import com.berkaydemirel.event.exception.InvalidEventVersionException;
+&nbsp;import com.berkaydemirel.event.service.EventService;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;import org.springframework.transaction.annotation.Transactional;
+&nbsp;
+&nbsp;/**
+&nbsp; * @author berkaydemirel
+&nbsp; */
+&nbsp;@Service
+&nbsp;public class BetSlipService {
+&nbsp;
+&nbsp;  private final BetSlipRepository repository;
+&nbsp;
+&nbsp;  private final EventService eventService;
+&nbsp;
+&nbsp;  private final CustomerService customerService;
+&nbsp;
+<b class="fc">&nbsp;  public BetSlipService(BetSlipRepository repository, EventService eventService, CustomerService customerService) {</b>
+<b class="fc">&nbsp;    this.repository = repository;</b>
+<b class="fc">&nbsp;    this.eventService = eventService;</b>
+<b class="fc">&nbsp;    this.customerService = customerService;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Transactional
+&nbsp;  public BetSlip create(BetSlip betSlip, Long customerId) throws InvalidEventVersionException, InterruptedException {
+<b class="fc">&nbsp;    customerService.checkCustomer(customerId);</b>
+<b class="fc">&nbsp;    betSlip.setCustomerId(customerId);</b>
+<b class="fc">&nbsp;    eventService.checkEventVersion(betSlip.getEventId(), betSlip.getEventVersion());</b>
+<b class="fc">&nbsp;    return repository.save(betSlip);</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-04-06 12:20</div>
+</div>
+</body>
+</html>
